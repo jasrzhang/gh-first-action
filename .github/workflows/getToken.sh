@@ -8,9 +8,11 @@ CLIENT_SECRET="7Wg8Q~h6_Ny~QTjpAIQ7Qp6RItge2SyDqg5SScWF"
 API_ID_URI="https://shuruihrad.onmicrosoft.com/5ae98d4a-3924-475d-aa36-71b012a1e8f0"
 
 # Use variables in the curl request
-curl -v --location --request POST "https://${TENANT}.b2clogin.com/${TENANT}.onmicrosoft.com/${POLICY}/oauth2/v2.0/token" \
+response=$(curl -v --location --request POST "https://${TENANT}.b2clogin.com/${TENANT}.onmicrosoft.com/${POLICY}/oauth2/v2.0/token" \
 --header "Content-Type: application/x-www-form-urlencoded" \
 --data-urlencode "grant_type=client_credentials" \
 --data-urlencode "client_id=${CLIENT_ID}" \
 --data-urlencode "client_secret=${CLIENT_SECRET}" \
---data-urlencode "scope=${API_ID_URI}/.default"
+--data-urlencode "scope=${API_ID_URI}/.default")
+
+echo "$response"
