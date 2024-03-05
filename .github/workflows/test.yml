@@ -3,6 +3,8 @@ on: push
 jobs:
     test:
         runs-on: ubuntu-latest
+        outputs:
+          ACCESS_TOKEN: ${{ steps.get_token.outputs.ACCESS_TOKEN }}
         steps:
             - name: Get code
               uses: actions/checkout@v3
@@ -17,11 +19,12 @@ jobs:
             - name: Make the script files executable
               run: chmod +x .github/workflows/getToken.sh
             - name: Get Token
+              id: get_token
               env:
                 B2C_CLIENT_SECRET: ${{ secrets.B2C_CLIENT_SECRET }}
               run: |
                 ACCESS_TOKEN=$(bash .github/workflows/getToken.sh)
-                echo "ACCESS_TOKEN=${ACCESS_TOKEN}" >> $GITHUB_OUTPUT
+                echo "::set-output name=ACCESS_TOKEN::$ACCESS_TOKEN"
               shell: bash
 
     deploy:
