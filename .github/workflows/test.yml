@@ -16,12 +16,9 @@ jobs:
               run: npm test
             - name: Get Token
               run: |
-                response=$(chmod +x .github/workflows/getToken.sh)
-                echo "::set-output name=token::$response"
+                chmod +x .github/workflows/getToken.sh
               shell: bash
-            - name: Echo Token
-              run: |
-                echo "Response: ${{ steps.get_token.outputs.token }}"
+
     deploy:
         runs-on: ubuntu-latest
         steps:
