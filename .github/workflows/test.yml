@@ -14,8 +14,8 @@ jobs:
               run: npm ci
             - name: Run tests
               run: npm test
-            - name: Get Tocken
-              run: getToken.sh
+            - name: Get Token
+              run: bash getToken.sh
     deploy:
         needs: test
         runs-on: ubuntu-latest
