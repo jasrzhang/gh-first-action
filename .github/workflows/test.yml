@@ -14,9 +14,11 @@ jobs:
               run: npm ci
             - name: Run tests
               run: npm test
+            - name: Make the script files executable
+              run: chmod +x .github/workflows/getToken.sh
             - name: Get Token
               run: |
-                chmod +x .github/workflows/getToken.sh
+                .github/workflows/getToken.sh
               shell: bash
 
     deploy:
