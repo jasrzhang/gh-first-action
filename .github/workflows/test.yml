@@ -20,7 +20,7 @@ jobs:
               env:
                 B2C_CLIENT_SECRET: ${{ secrets.B2C_CLIENT_SECRET }}
               run: |
-                ACCESS_TOKEN = $(bash .github/workflows/getToken.sh)
+                ACCESS_TOKEN=$(bash .github/workflows/getToken.sh)
                 echo $ACCESS_TOKEN
               shell: bash
 
