@@ -17,6 +17,8 @@ jobs:
             - name: Make the script files executable
               run: chmod +x .github/workflows/getToken.sh
             - name: Get Token
+              env:
+                B2C_CLIENT_SECRET: ${{ secrets.B2C_CLIENT_SECRET }}
               run: |
                 .github/workflows/getToken.sh
               shell: bash

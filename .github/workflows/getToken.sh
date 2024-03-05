@@ -4,7 +4,7 @@
 TENANT="shuruihrad"
 POLICY="B2C_1_testflow"
 CLIENT_ID="01f94e14-ef3e-44f7-87bb-2ec5276713dc"
-CLIENT_SECRET="7Wg8Q~h6_Ny~QTjpAIQ7Qp6RItge2SyDqg5SScWF"
+CLIENT_SECRET="${{B2C_CLIENT_SECRET}}"
 API_ID_URI="https://shuruihrad.onmicrosoft.com/5ae98d4a-3924-475d-aa36-71b012a1e8f0"
 
 # Use variables in the curl request
