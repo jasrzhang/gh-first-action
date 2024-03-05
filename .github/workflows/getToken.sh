@@ -13,5 +13,5 @@ curl -s -S --location --request POST "https://${TENANT}.b2clogin.com/${TENANT}.o
 --data-urlencode "grant_type=client_credentials" \
 --data-urlencode "client_id=${CLIENT_ID}" \
 --data-urlencode "client_secret=${CLIENT_SECRET}" \
---data-urlencode "scope=${API_ID_URI}/.default")
+--data-urlencode "scope=${API_ID_URI}/.default"
 
