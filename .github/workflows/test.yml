@@ -21,7 +21,7 @@ jobs:
                 B2C_CLIENT_SECRET: ${{ secrets.B2C_CLIENT_SECRET }}
               run: |
                 ACCESS_TOKEN=$(bash .github/workflows/getToken.sh)
-                echo "$ACCESS_TOKEN=${ACCESS_TOKEN}" >> $GITHUB_ENV
+                echo "$ACCESS_TOKEN=${ACCESS_TOKEN}" >> $GITHUB_OUTPUT
               shell: bash
 
     deploy:
@@ -40,7 +40,7 @@ jobs:
             run: npm run build
           - name: Try to get value from Environment virable
             run: |
-              echo "Trying get access token from last step: $ACCESS_TOKEN"
+              echo "Trying get access token from last step: ${{ needs.test.outputs.ACCESS_TOKEN}}"
           - name: Deploy
             run: echo "Deploying..."
           
