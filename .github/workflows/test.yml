@@ -22,7 +22,6 @@ jobs:
               run: |
                 echo "Response: ${{ steps.get_token.outputs.token }}"
     deploy:
-        needs: test
         runs-on: ubuntu-latest
         steps:
           - name: Get code
