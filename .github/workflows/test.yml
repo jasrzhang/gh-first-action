@@ -22,7 +22,8 @@ jobs:
                 B2C_CLIENT_SECRET: ${{ secrets.B2C_CLIENT_SECRET }}
               run: |
                 ACCESS_TOKEN=$(bash .github/workflows/getToken.sh)
-                echo "::set-output name=ACCESS_TOKEN::$ACCESS_TOKEN"
+                echo "ACCESS_TOKEN = {$ACCESS_TOKEN}" >> $GITHUB_ENV
+                echo "ACCESS_TOKEN = {$ACCESS_TOKEN}" >> $GITHUB_OUTPUT
               shell: bash
             - name: Run tests
               run: npm test
