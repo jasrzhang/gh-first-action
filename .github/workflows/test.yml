@@ -23,9 +23,11 @@ jobs:
               run: |
                 ACCESS_TOKEN=$(bash .github/workflows/getToken.sh)
                 echo $ACCESS_TOKEN
-                echo "ACCESS_TOKEN = {$ACCESS_TOKEN}" >> $GITHUB_ENV
-                echo "ACCESS_TOKEN = {$ACCESS_TOKEN}" >> $GITHUB_OUTPUT
+                echo "REACT_APP_ACCESS_TOKEN={$ACCESS_TOKEN}" >> $GITHUB_ENV
+                echo "REACT_APP_ACCESS_TOKEN={$ACCESS_TOKEN}" >> $GITHUB_OUTPUT
               shell: bash
+            - name: Run build
+              run: npm run build
             - name: Run tests
               run: npm test
 
