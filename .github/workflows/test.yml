@@ -4,7 +4,7 @@ jobs:
     test:
         runs-on: ubuntu-latest
         outputs:
-          ACCESS_TOKEN: ${{ steps.get_token.outputs.ACCESS_TOKEN }}
+          REACT_APP_ACCESS_TOKEN: ${{ steps.get_token.outputs.REACT_APP_ACCESS_TOKEN }}
         steps:
             - name: Get code
               uses: actions/checkout@v3
@@ -47,7 +47,7 @@ jobs:
             run: npm run build
           - name: Try to get value from Environment virable
             run: |
-              echo "Trying get access token from last step: ${{ needs.test.outputs.ACCESS_TOKEN}}"
+              echo "Trying get access token from last step: ${{ needs.test.outputs.REACT_APP_ACCESS_TOKEN}}"
           - name: Deploy
             run: echo "Deploying..."
           
